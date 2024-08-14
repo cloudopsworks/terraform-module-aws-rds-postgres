@@ -26,7 +26,7 @@ resource "time_rotating" "randompass" {
 
 # Secrets saving
 resource "aws_secretsmanager_secret" "randompass" {
-  name = "${local.secret_store_path}/admin/password"
+  name = "${local.secret_store_path}/${local.master_username}/password"
   tags = local.all_tags
 }
 
