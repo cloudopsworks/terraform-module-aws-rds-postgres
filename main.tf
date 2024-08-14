@@ -14,6 +14,7 @@ module "this" {
   identifier                          = "rds-db-${var.settings.name_prefix}-${local.system_name}"
   engine                              = var.settings.engine_type
   engine_version                      = var.settings.engine_version
+  availability_zone                   = try(var.settings.availability_zones[0], null)
   instance_class                      = var.settings.instance_size
   allocated_storage                   = var.settings.storage_size
   db_name                             = var.settings.database_name
@@ -36,5 +37,6 @@ module "this" {
   snapshot_identifier                 = "rds-db-${var.settings.name_prefix}-${local.system_name}"
   final_snapshot_identifier_prefix    = "rds-db-${var.settings.name_prefix}-${local.system_name}-final-snap"
   deletion_protection                 = try(var.settings.deletion_protection, false)
+  apply_immediately                   = try(var.settings.apply_immediately, true)
   tags                                = local.all_tags
 }
