@@ -14,25 +14,26 @@ output "rds_security_group_ids" {
   value = local.security_group_ids
 }
 
-output "rds_cluster_arn" {
-  value = aws_rds_cluster.this.arn
+output "rds_instance_arn" {
+  value = module.this.db_instance_arn
 }
 
-output "rds_cluster_endpoint" {
-  value = aws_rds_cluster.this.endpoint
+output "rds_instance_address" {
+  value = module.this.db_instance_address
 }
 
-output "rds_cluster_hosted_zone_id" {
-  value = aws_rds_cluster.this.hosted_zone_id
+output "rds_instance_endpoint" {
+  value = module.this.db_instance_endpoint
 }
 
-output "rds_cluster_reader_endpoint" {
-  value = aws_rds_cluster.this.reader_endpoint
+output "rds_instance_hosted_zone_id" {
+  value = module.this.db_instance_hosted_zone_id
 }
-output "rds_cluster_port" {
-  value = aws_rds_cluster.this.port
+
+output "rds_instance_port" {
+  value = module.this.db_instance_port
 }
 
 output "rds_cluster_master_username" {
-  value = aws_rds_cluster.this.master_username
+  value = module.this.db_instance_username
 }

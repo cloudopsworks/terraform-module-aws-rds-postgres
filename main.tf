@@ -16,9 +16,10 @@ module "this" {
   engine_version                      = var.settings.engine_version
   instance_class                      = var.settings.instance_size
   allocated_storage                   = var.settings.storage_size
-  name                                = var.settings.database_name
+  db_name                             = var.settings.database_name
   username                            = var.settings.master_username
   password                            = random_password.randompass.result
+  manage_master_user_password         = false
   port                                = local.rds_port
   iam_database_authentication_enabled = try(var.settings.iam.database_authentication_enabled, false)
   vpc_security_group_ids              = local.security_group_ids
