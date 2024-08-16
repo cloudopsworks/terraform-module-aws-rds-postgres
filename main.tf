@@ -32,6 +32,7 @@ module "this" {
   db_subnet_group_name                = var.vpc.subnet_group
   family                              = try(var.settings.family, null)
   major_engine_version                = try(var.settings.major_engine_version, null)
+  create_db_option_group              = try(var.settings.create_db_option_group, null)
   parameters                          = try(var.settings.parameters, [])
   options                             = try(var.settings.options, [])
   skip_final_snapshot                 = false
