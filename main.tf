@@ -10,6 +10,10 @@ locals {
 
 # Provisions RDS instance only if rds_provision=true
 module "this" {
+  depends_on = [
+    random_password.randompass,
+    aws_security_group.this
+  ]
   source                              = "terraform-aws-modules/rds/aws"
   version                             = "6.8.0"
   identifier                          = "rds-db-${var.settings.name_prefix}-${local.system_name}"
