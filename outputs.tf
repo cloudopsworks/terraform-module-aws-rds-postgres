@@ -34,7 +34,7 @@ output "rds_instance_port" {
   value = module.this.db_instance_port
 }
 
-output "rds_cluster_master_username" {
+output "rds_instance_username" {
   value     = module.this.db_instance_username
   sensitive = true
 }
