@@ -17,7 +17,7 @@ module "this" {
   engine_version                      = var.settings.engine_version
   availability_zone                   = try(var.settings.availability_zones[0], null)
   instance_class                      = var.settings.instance_size
-  allocated_storage                   = var.settings.storage_size
+  allocated_storage                   = try(var.settings.storage_size, null)
   db_name                             = var.settings.database_name
   username                            = local.master_username
   password                            = random_password.randompass.result
